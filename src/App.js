@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchBar from "./components/SearchBar";
+import MainNav from "./components/MainNav";
 import {
     BrowserRouter as Router,
     Route,
@@ -11,9 +12,10 @@ import apiKey from "./config";
 class App extends Component {
     render() {
         return (
-           <Router>
-               <SearchBar />
-           </Router>
+            <Router>
+                <SearchBar />
+                <MainNav />
+            </Router>
         );
     }
 }

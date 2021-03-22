@@ -8,13 +8,15 @@ import {
 } from "react-router-dom";
 
 import apiKey from "./config";
+import Gifs from "./components/Gallery";
+import Gallery from "./components/Gallery";
 
 class App extends Component {
 
     constructor() {
         super()
         this.state = {
-            gifs: [],
+            pictures: [],
             loading: true
         }
     }
@@ -30,7 +32,7 @@ class App extends Component {
                     pictures: response.data.photos.photo,
                     loading: false,
                 })
-                console.log(this.state.pictures)
+                // console.log(this.state.pictures)
             })
             .catch(error => {
                 console.log('Error fetching and parsing data', error)
@@ -43,14 +45,7 @@ class App extends Component {
             <Router>
                 <SearchBar />
                 <MainNav />
-                <div className="photo-container">
-                    {/*{*/}
-                    {/*    (this.state.loading)*/}
-                    {/*        ? <p>Loading...</p>*/}
-                    {/*        : <GifList data={this.state.gifs} />*/}
-                    {/*}*/}
-                </div>
-
+                <Gallery data={this.state.pictures} />
             </Router>
         );
     }

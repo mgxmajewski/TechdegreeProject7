@@ -1,14 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Home from "./components/Home";
 
 import {
     BrowserRouter as Router,
-    Route
+    Route,
+    Switch
 } from "react-router-dom";
 
 const App = () => (
     <Router>
-        <Route exact path="/" component={Home} />
+        <Switch>
+            <Route path="/" component={Home} />
+            <Route path="/:routequery" component={Home} />
+        </Switch>
     </Router>
 )
 

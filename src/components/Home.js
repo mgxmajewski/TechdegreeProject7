@@ -4,6 +4,7 @@ import MainNav from "./MainNav";
 import axios from "axios";
 
 
+
 import {
     BrowserRouter as Router
 } from "react-router-dom";
@@ -17,22 +18,28 @@ export default class Home extends Component {
         super()
         this.state = {
             pictures: [],
-            loading: true
+            loading: true,
         }
     }
 
     componentDidMount() {
-        this.performSearch()
+        let query = this.props.location.pathname
+        if (query === '/') {
+            this.performSearch('cats')
+        } else {
+            this.performSearch(query)
+        }
+        console.log('query:' + query)
     }
 
-    performSearch = (query = 'cats') => {
+    performSearch = (query) => {
         axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
             .then(response => {
                 this.setState({
                     pictures: response.data.photos.photo,
                     loading: false,
                 })
-                console.log(this.state.pictures)
+                // console.log(this.state.pictures)
             })
             .catch(error => {
                 console.log('Error fetching and parsing data', error)

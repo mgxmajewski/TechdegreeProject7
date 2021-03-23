@@ -4,7 +4,8 @@ import NoPictures from "./NoPictures";
 
 
 const Gallery = props => {
-    const picture = props.data
+    const picture = props.data.pictures
+    // console.log(picture)
     const pictureSize = 'm'
     let pictures
 
@@ -21,11 +22,13 @@ const Gallery = props => {
             <ul>
                 { pictures }
             </ul>
-            {/*{*/}
-            {/*    (this.state.loading)*/}
-            {/*        ? <p>Loading...</p>*/}
-            {/*        : <GifList data={this.state.gifs} />*/}
-            {/*}*/}
+            {/*<div>*/}
+            {/*    {*/}
+            {/*        (props.data.loading)*/}
+            {/*            ? <p>Loading...</p>*/}
+            {/*            : <Gallery data={props} />*/}
+            {/*    }*/}
+            {/*</div>*/}
         </div>
     )
 }

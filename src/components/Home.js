@@ -19,6 +19,7 @@ export default class Home extends Component {
         this.state = {
             pictures: [],
             loading: true,
+            query: ''
         }
     }
 
@@ -38,6 +39,7 @@ export default class Home extends Component {
                 this.setState({
                     pictures: response.data.photos.photo,
                     loading: false,
+                    query: this.props.location.pathname
                 })
                 // console.log(this.state.pictures)
             })
@@ -49,9 +51,9 @@ export default class Home extends Component {
     render() {
         return (
             <div>
-                <SearchBar search={this.performSearch}/>
-                <MainNav />
-                <Gallery data={this.state.pictures} />
+                <SearchBar search={this.performSearch} />
+                <MainNav search={this.performSearch} />
+                <Gallery data={this.state} />
             </div>
         );
     }

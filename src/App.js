@@ -11,7 +11,7 @@ const App = () => (
     <Router>
         <Switch>
             <Route path="/" component={Home} />
-            <Route path="/:routequery" component={Home} />
+            {/*<Route path="/:param" render { () => <Home param={}/> } />*/}
         </Switch>
     </Router>
 )

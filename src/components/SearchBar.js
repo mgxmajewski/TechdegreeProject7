@@ -5,7 +5,8 @@ class SearchBar extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         let search = this.search.value
-        console.log(search)
+        this.props.search(search)
+        // console.log(search)
     }
 
     render() {

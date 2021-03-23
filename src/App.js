@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import SearchBar from "./components/SearchBar";
 import MainNav from "./components/MainNav";
 import axios from "axios";
-import GifList from "./components/GifList";
+
 import {
     BrowserRouter as Router
 } from "react-router-dom";
 
 import apiKey from "./config";
-import Gifs from "./components/Gallery";
 import Gallery from "./components/Gallery";
 
 class App extends Component {
@@ -32,7 +31,7 @@ class App extends Component {
                     pictures: response.data.photos.photo,
                     loading: false,
                 })
-                // console.log(this.state.pictures)
+                console.log(this.state.pictures)
             })
             .catch(error => {
                 console.log('Error fetching and parsing data', error)
@@ -43,7 +42,7 @@ class App extends Component {
     render() {
         return (
             <Router>
-                <SearchBar />
+                <SearchBar search={this.performSearch}/>
                 <MainNav />
                 <Gallery data={this.state.pictures} />
             </Router>

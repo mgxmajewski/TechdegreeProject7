@@ -50,7 +50,7 @@ export default class Home extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <SearchBar search={this.performSearch} />
                 <MainNav search={this.performSearch} />
                 <Gallery data={this.state} />

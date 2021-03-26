@@ -31,7 +31,11 @@ export default function Home() {
             <div className="container">
                 <SearchBar search={performSearch} />
                 <MainNav search={performSearch} />
-                <Gallery data={data} isLoading={isLoading} />
+                {
+                    (isLoading)
+                        ? <p>isLoading</p>
+                        : <Gallery data={data} isLoading={isLoading} />
+                }
             </div>
         );
 

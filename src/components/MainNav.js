@@ -1,14 +1,15 @@
 import React from 'react'
-import {NavLink} from "react-router-dom";
+import {NavLink, Redirect, Route} from "react-router-dom";
 import Home from "./Home";
 
 class MainNav extends React.Component {
 
+
     handleClick = (e) => {
         e.preventDefault()
-        let path = `/${e.target.innerText}`
+        // let path = `/${e.target.innerText}`
+        // this.props.history.push(path)
         this.props.search(e.target.innerText)
-        this.props.history.push(path)
         // console.log(e.target)
     }
 
@@ -22,7 +23,7 @@ class MainNav extends React.Component {
                 </ul>
             </nav>
 
-// <Route path={`${match.path}/cats`} render={ () =>/> } />
+
 
         );
     }

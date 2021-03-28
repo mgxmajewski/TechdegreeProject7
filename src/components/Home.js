@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SearchBar from "./SearchBar";
 import MainNav from "./MainNav";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { useHistory,useLocation } from "react-router-dom";
 
 
 
@@ -21,6 +21,8 @@ export default function Home() {
     const [data, setData] = useState([])
     const [query, setQuery] = useState('cats')
     const [isLoading, setIsLoading] = useState(true)
+    const performSearch = (value) => setQuery(value)
+    const history = useHistory()
 
     useEffect( () => {
         axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
@@ -29,7 +31,12 @@ export default function Home() {
             .finally(()=> setIsLoading(false))
     }, [query])
 
-    const performSearch = (value) => setQuery(value)
+
+
+    // const queryParam = this.props.query
+    // console.log(queryParam.length)
+    // console.log(queryParam.length > 0)
+
 
         return (
             <div className="container">

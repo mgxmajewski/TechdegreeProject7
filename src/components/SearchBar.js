@@ -8,6 +8,7 @@ class SearchBar extends Component {
         let path = `/search/${search}`
         this.props.search(search)
         this.props.history.push(path)
+        this.search.value=null
     }
 
     render() {

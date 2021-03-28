@@ -11,11 +11,9 @@ export default function Home() {
 
     const getLastItem = thePath => thePath.substring(thePath.lastIndexOf('/') + 1)
     let urlParam = getLastItem(useLocation().pathname)
-    console.log(urlParam)
 
     if (urlParam.length === 0) {
         urlParam = 'cats'
-        console.log(urlParam)
     }
 
     const [data, setData] = useState([])
@@ -23,7 +21,6 @@ export default function Home() {
     const [isLoading, setIsLoading] = useState(true)
     const performSearch = (value) => setQuery(value)
     const history = useHistory()
-
 
     useEffect( () => {
         axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
@@ -36,7 +33,6 @@ export default function Home() {
         return history.listen((location) => {
             console.log(`You changed the page to: ${location.pathname}`)
             // https://flaviocopes.com/how-to-get-last-item-path-javascript/
-            console.log(typeof location.pathname)
             performSearch(getLastItem(location.pathname))
         })
     },[history])

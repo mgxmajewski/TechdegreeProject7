@@ -15,7 +15,7 @@ const App = () => (
             <Route path ="/dogs" component={Home} />
             <Route path ="/cats" component={Home} />
             <Route path ="/computers" component={Home} />
-            <Route path ="/search/:query" component={Home} />
+            <Route path ="/search" component={Home} />
             <Route component={NotFound} />
         </Switch>
     </Router>

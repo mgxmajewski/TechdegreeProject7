@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
+import {Link, NavLink} from "react-router-dom";
 
 class SearchBar extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
         let search = this.search.value
+        let path = `/search/${search}`
         this.props.search(search)
-        // console.log(search)
+        this.props.history.push(path)
     }
 
     render() {

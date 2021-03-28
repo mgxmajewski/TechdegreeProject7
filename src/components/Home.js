@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SearchBar from "./SearchBar";
 import MainNav from "./MainNav";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 
 
@@ -11,8 +12,11 @@ import {
 
 import apiKey from "../config";
 import Gallery from "./Gallery";
+import NotFound from "./NotFound";
 
 export default function Home() {
+
+    let history = useHistory()
 
     const [data, setData] = useState([])
     const [query, setQuery] = useState('cats')
@@ -29,8 +33,8 @@ export default function Home() {
 
         return (
             <div className="container">
-                <SearchBar search={performSearch} />
-                <MainNav search={performSearch} />
+                <SearchBar history={history} search={performSearch} />
+                <MainNav history={history} search={performSearch} />
                 {
                     (isLoading)
                         ? <p>isLoading</p>

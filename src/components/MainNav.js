@@ -17,9 +17,6 @@ class MainNav extends React.Component {
                     <li onClick={this.handleClick}><NavLink to={`/computers`}>computers</NavLink></li>
                 </ul>
             </nav>
-
-
-
         );
     }
 }

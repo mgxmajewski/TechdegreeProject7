@@ -10,7 +10,7 @@ const Gallery = props => {
 
     if (picture.length > 0) {
         pictures = picture.map(picture => <Picture url={`https://live.staticflickr.com/${picture.server}/${picture.id}_${picture.secret}_${pictureSize}.jpg`}
-                                       key={picture.id}/>)
+                                                   key={picture.id}/>)
     } else {
         pictures = <NoPictures/>
     }
@@ -24,4 +24,5 @@ const Gallery = props => {
         </div>
     )
 }
+
 export default Gallery;

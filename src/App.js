@@ -2,7 +2,6 @@ import React from 'react';
 import Home from "./components/Home";
 import NotFound from "./components/NotFound";
 
-
 import {
     BrowserRouter as Router,
     Route,
@@ -18,7 +17,6 @@ const App = () => (
             <Route path ="/computers" component={Home} />
             <Route path ="/search/:query" component={Home} />
             <Route component={NotFound} />
-            {/*<Route path="/:param" render { () => <Home param={}/> } />*/}
         </Switch>
     </Router>
 )

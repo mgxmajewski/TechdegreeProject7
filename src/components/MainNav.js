@@ -1,9 +1,7 @@
 import React from 'react'
-import {NavLink, Redirect, Route} from "react-router-dom";
-import Home from "./Home";
+import {NavLink,} from "react-router-dom";
 
 class MainNav extends React.Component {
-
 
     handleClick = (e) => {
         e.preventDefault()

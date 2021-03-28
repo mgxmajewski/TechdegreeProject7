@@ -16,7 +16,6 @@ import NotFound from "./NotFound";
 
 export default function Home() {
 
-    let history = useHistory()
 
     const [data, setData] = useState([])
     const [query, setQuery] = useState('cats')
@@ -30,6 +29,15 @@ export default function Home() {
             .catch(error => console.log('Error fetching and parsing data', error))
             .finally(()=> setIsLoading(false))
     }, [query])
+
+    useEffect(() => {
+        return history.listen((location) => {
+            console.log(`You changed the page to: ${location.pathname}`)
+            console.log(typeof location.pathname)
+            const getLastItem = thePath => thePath.substring(thePath.lastIndexOf('/') + 1)
+            performSearch(getLastItem(location.pathname))
+        })
+    },[history])
 
 
 

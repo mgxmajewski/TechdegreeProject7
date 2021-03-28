@@ -5,10 +5,7 @@ class MainNav extends React.Component {
 
     handleClick = (e) => {
         e.preventDefault()
-        // let path = `/${e.target.innerText}`
-        // this.props.history.push(path)
         this.props.search(e.target.innerText)
-        // console.log(e.target)
     }
 
     render() {

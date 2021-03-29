@@ -30,6 +30,7 @@ export default function Home() {
 
     // Fetch from API using query parameter taken from url
     useEffect( () => {
+        setIsLoading(true)
         axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
             .then(response => setData(response.data.photos.photo))
             .catch(error => console.log('Error fetching and parsing data', error))
